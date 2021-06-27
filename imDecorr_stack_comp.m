@@ -12,6 +12,7 @@ Ng = 10;
 r = linspace(0,1,Nr);
 GPU = 1;
 
+tic;
 img0 = double(ReadTifStack(fileIn1));
 imSize0 = size(img0);
 exSize = [128, 128, 0];
@@ -40,6 +41,7 @@ for i = 1:Sz
 end
 ress = pixelSize * 2./kcMaxs;
 ress1 = ress;
+cTime1 = toc
 
 img0 = double(ReadTifStack(fileIn2));
 imSize0 = size(img0);
@@ -69,9 +71,10 @@ for i = 1:Sz
 end
 ress = pixelSize * 2./kcMaxs;
 ress2 = ress;
+cTime2 = toc
 
 ix = [1:Sz]* zStepSize;
-figue, plot(ix, ress1, 'LineWidth', 2);
+figure, plot(ix, ress1, 'LineWidth', 2);
 hold on, plot(ix, ress2, 'LineWidth', 2);
 xlabel('Z depth (um)');
 ylabel('De-correlation Resolution (nm)');

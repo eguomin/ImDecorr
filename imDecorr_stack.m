@@ -2,6 +2,7 @@
 addpath('funcs')
 % fileIn = 'I:\AO_Project\DeepLearning\TwoPhotonChris\Prepro\Tom20_Heart\img_6.tif';
 fileIn = 'I:\AO_Project\DeepLearning\TwoPhotonChris\DL_results\Tom20_Heart\DL_DeAbe\img_6.tif';
+tic
 img0 = double(ReadTifStack(fileIn));
 pixelSize = 120; % nm
 zStepSize = 0.5; % um
@@ -39,8 +40,9 @@ for i = 1:Sz
     kcMaxs(i) = kcMax;
     close all;
 end
-
 ress = pixelSize * 2./kcMaxs;
+cTime = toc
+
 figure, plot([1:Sz]* zStepSize, ress, 'LineWidth', 2);
 xlabel('Z depth (um)');
 ylabel('De-correlation Resolution (nm)');

@@ -41,7 +41,7 @@ for i = 1:Sz
 end
 
 ress = pixelSize * 2./kcMaxs;
-figue, plot([1:Sz]* zStepSize, ress, 'LineWidth', 2);
+figure, plot([1:Sz]* zStepSize, ress, 'LineWidth', 2);
 xlabel('Z depth (um)');
 ylabel('De-correlation Resolution (nm)');
 title('De-correlation Analysis');

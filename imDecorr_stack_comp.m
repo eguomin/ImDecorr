@@ -1,7 +1,7 @@
 % % set path and load some data
 addpath('funcs')
-fileIn1 = 'Y:\MG\AO_Project\DeepLearning\TwoPhotonChris\Prepro\Tom20_Heart\img_6.tif';
-fileIn2 = 'Y:\MG\AO_Project\DeepLearning\TwoPhotonChris\DL_results\Tom20_Heart\DL_DeAbe\img_6.tif';
+fileIn1 = 'Y:\MG\AO_Project\DeepLearning\TwoPhotonChris\Prepro\Tom20_Heart\img_24.tif';
+fileIn2 = 'Y:\MG\AO_Project\DeepLearning\TwoPhotonChris\DL_results\Tom20_Heart\DL_DeAbe\img_24.tif';
 pixelSize = 120; % nm
 zStepSize = 0.5; % um
 
@@ -13,7 +13,7 @@ r = linspace(0,1,Nr);
 GPU = 1;
 
 tic;
-img0 = double(ReadTifStack(fileIn1));
+img0 = single(ReadTifStack(fileIn1));
 imSize0 = size(img0);
 exSize = [128, 128, 0];
 imSize = imSize0 - exSize * 2;
@@ -43,7 +43,7 @@ ress = pixelSize * 2./kcMaxs;
 ress1 = ress;
 cTime1 = toc
 
-img0 = double(ReadTifStack(fileIn2));
+img0 = single(ReadTifStack(fileIn2));
 imSize0 = size(img0);
 exSize = [128, 128, 0];
 imSize = imSize0 - exSize * 2;
